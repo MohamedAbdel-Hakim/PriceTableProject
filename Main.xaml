@@ -187,7 +187,7 @@
                           <OutArgument x:TypeArguments="s:DateTime">[TP2]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(dt_PriceTableSheet.Rows(8)(1).ToString, ("dd.MM.yyyy").ToString, Nothing)]</InArgument>
+                          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(dt_PriceTableSheet.Rows(8)(1).ToString, "dd.MM.yyyy", Nothing)]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
