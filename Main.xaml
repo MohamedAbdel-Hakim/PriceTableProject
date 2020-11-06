@@ -114,6 +114,7 @@
         </Variable.Default>
       </Variable>
       <Variable x:TypeArguments="x:Boolean" Name="bool_MealElementExist" />
+      <Variable x:TypeArguments="x:Int32" Default="10" Name="int_RowIndex" />
     </Flowchart.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -125,9 +126,9 @@
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
     <Flowchart.StartNode>
-      <x:Reference>__ReferenceID31</x:Reference>
+      <x:Reference>__ReferenceID30</x:Reference>
     </Flowchart.StartNode>
-    <FlowStep x:Name="__ReferenceID31">
+    <FlowStep x:Name="__ReferenceID30">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <av:Point x:Key="ShapeLocation">0,127.5</av:Point>
@@ -187,7 +188,7 @@
                           <OutArgument x:TypeArguments="s:DateTime">[TP2]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(dt_PriceTableSheet.Rows(8)(1).ToString, "dd.MM.yyyy", Nothing)]</InArgument>
+                          <InArgument x:TypeArguments="s:DateTime">[Convert.ToDateTime(dt_PriceTableSheet.Rows(8)(1).ToString, new CultureInfo("it-IT"))]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_17">
@@ -195,7 +196,7 @@
                           <OutArgument x:TypeArguments="s:DateTime">[TP1]</OutArgument>
                         </ui:AssignOperation.To>
                         <ui:AssignOperation.Value>
-                          <InArgument x:TypeArguments="s:DateTime">[DateTime.ParseExact(dt_PriceTableSheet.Rows(7)(1).ToString, "dd.MM.yyyy", Nothing)]</InArgument>
+                          <InArgument x:TypeArguments="s:DateTime">[Convert.ToDateTime(dt_PriceTableSheet.Rows(7)(1).ToString, new CultureInfo("it-IT"))]</InArgument>
                         </ui:AssignOperation.Value>
                       </ui:AssignOperation>
                       <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_18">
@@ -250,7 +251,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
         </ui:ExcelApplicationScope>
       </Sequence>
       <FlowStep.Next>
-        <FlowStep x:Name="__ReferenceID28">
+        <FlowStep x:Name="__ReferenceID27">
           <sap:WorkflowViewStateService.ViewState>
             <scg:Dictionary x:TypeArguments="x:String, x:Object">
               <av:Point x:Key="ShapeLocation">0,244.5</av:Point>
@@ -322,7 +323,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:InterruptibleDoWhile>
-                  <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="Uncover 20 Offers" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_8">
+                  <ui:InterruptibleDoWhile sap2010:Annotation.AnnotationText="Uncover 30 Offers" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_8">
                     <ui:InterruptibleDoWhile.Body>
                       <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,298" sap2010:WorkflowViewState.IdRef="Sequence_16">
                         <sap:WorkflowViewStateService.ViewState>
@@ -363,7 +364,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                       </Sequence>
                     </ui:InterruptibleDoWhile.Body>
                     <ui:InterruptibleDoWhile.Condition>
-                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="int_CheckIndex&lt;30" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_4" />
+                      <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="int_CheckIndex&lt;30" />
                     </ui:InterruptibleDoWhile.Condition>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -384,7 +385,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
             </sap:WorkflowViewStateService.ViewState>
           </ui:OpenBrowser>
           <FlowStep.Next>
-            <FlowStep x:Name="__ReferenceID30">
+            <FlowStep x:Name="__ReferenceID29">
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                   <av:Point x:Key="ShapeLocation">0,406.5</av:Point>
@@ -393,12 +394,6 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                 </scg:Dictionary>
               </sap:WorkflowViewStateService.ViewState>
               <Flowchart sap2010:Annotation.AnnotationText="Get &amp; Write Offers" DisplayName="Get Date 1" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="Flowchart_4">
-                <Flowchart.Variables>
-                  <Variable x:TypeArguments="x:String" Name="str_FinalRate" />
-                  <Variable x:TypeArguments="x:Boolean" Name="bool_ErrorExist" />
-                  <Variable x:TypeArguments="x:Int32" Default="1" Name="int_GetDataIndex" />
-                  <Variable x:TypeArguments="x:Boolean" Name="bool_MealElementExist" />
-                </Flowchart.Variables>
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">False</x:Boolean>
@@ -424,7 +419,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <FlowDecision.True>
-                    <FlowStep x:Name="__ReferenceID7">
+                    <FlowStep x:Name="__ReferenceID6">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <av:Point x:Key="ShapeLocation">270.5,592</av:Point>
@@ -450,7 +445,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                         </sap:WorkflowViewStateService.ViewState>
                       </ui:UiElementExists>
                       <FlowStep.Next>
-                        <FlowDecision x:Name="__ReferenceID8" Condition="[bool_MealElementExist]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
+                        <FlowDecision x:Name="__ReferenceID7" Condition="[bool_MealElementExist]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_8">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
                               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -461,7 +456,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <FlowDecision.True>
-                            <FlowStep x:Name="__ReferenceID10">
+                            <FlowStep x:Name="__ReferenceID9">
                               <sap:WorkflowViewStateService.ViewState>
                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                   <av:Point x:Key="ShapeLocation">120,875.5</av:Point>
@@ -469,7 +464,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                   <av:PointCollection x:Key="ConnectorLocation">320,931.5 370,931.5</av:PointCollection>
                                 </scg:Dictionary>
                               </sap:WorkflowViewStateService.ViewState>
-                              <Sequence sap2010:Annotation.AnnotationText="Get Price,Destination &amp; Travel Date" sap:VirtualizedContainerService.HintSize="200,112" sap2010:WorkflowViewState.IdRef="Sequence_26">
+                              <Sequence sap2010:Annotation.AnnotationText="Get Price,Destination &amp; Travel Date" DisplayName="Get Data" sap:VirtualizedContainerService.HintSize="200,112" sap2010:WorkflowViewState.IdRef="Sequence_26">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -528,17 +523,14 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                 </ui:GetValue>
                               </Sequence>
                               <FlowStep.Next>
-                                <FlowStep x:Name="__ReferenceID9">
+                                <FlowStep x:Name="__ReferenceID8">
                                   <sap:WorkflowViewStateService.ViewState>
                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                       <av:Point x:Key="ShapeLocation">370,897.5</av:Point>
                                       <av:Size x:Key="ShapeSize">200,68</av:Size>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
-                                  <Sequence sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_27">
-                                    <Sequence.Variables>
-                                      <Variable x:TypeArguments="x:Int32" Default="10" Name="int_RowIndex" />
-                                    </Sequence.Variables>
+                                  <Sequence DisplayName="Write Data " sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_27">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -611,7 +603,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                       <av:Point x:Key="ShapeLocation">930.5,346.5</av:Point>
                                       <av:Size x:Key="ShapeSize">79,87</av:Size>
                                       <av:PointCollection x:Key="TrueConnector">930.5,390 900.5,390 900.5,412 690,412</av:PointCollection>
-                                      <av:PointCollection x:Key="FalseConnector">1009.5,390 1104.5,390</av:PointCollection>
+                                      <av:PointCollection x:Key="FalseConnector">1009.5,390 1109.5,390</av:PointCollection>
                                     </scg:Dictionary>
                                   </sap:WorkflowViewStateService.ViewState>
                                   <FlowDecision.True>
@@ -664,20 +656,43 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                     </FlowStep>
                                   </FlowDecision.True>
                                   <FlowDecision.False>
-                                    <FlowStep x:Name="__ReferenceID5">
+                                    <FlowStep x:Name="__ReferenceID11">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                          <av:Point x:Key="ShapeLocation">1104.5,359</av:Point>
-                                          <av:Size x:Key="ShapeSize">231,62</av:Size>
+                                          <av:Point x:Key="ShapeLocation">1109.5,356</av:Point>
+                                          <av:Size x:Key="ShapeSize">200,68</av:Size>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_17" Text="No Offers Found">
+                                      <Sequence sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_29">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                      </WriteLine>
+                                        <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="WriteLine_19" Text="No Offers Found">
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </WriteLine>
+                                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_29">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Object">[dt_PriceTableSheet.Rows(int_RowIndex)(1)]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:String">["No Offer Found".ToString]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                        <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_30">
+                                          <Assign.To>
+                                            <OutArgument x:TypeArguments="x:Int32">[int_RowIndex]</OutArgument>
+                                          </Assign.To>
+                                          <Assign.Value>
+                                            <InArgument x:TypeArguments="x:Int32">[int_RowIndex+1]</InArgument>
+                                          </Assign.Value>
+                                        </Assign>
+                                      </Sequence>
                                     </FlowStep>
                                   </FlowDecision.False>
                                 </FlowDecision>
@@ -696,7 +711,6 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                 <x:Reference>__ReferenceID1</x:Reference>
                 <x:Reference>__ReferenceID3</x:Reference>
                 <x:Reference>__ReferenceID4</x:Reference>
-                <x:Reference>__ReferenceID5</x:Reference>
                 <FlowStep x:Name="__ReferenceID12">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -707,7 +721,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:UiElementExists sap2010:Annotation.AnnotationText="Find Error Message Element" DisplayName="Find Error Element" Exists="[bool_ErrorExist]" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="UiElementExists_6">
                     <ui:UiElementExists.Target>
-                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8e17c48a-61a5-47ae-b51f-1ef1240f0c14" InformativeScreenshot="d37663d691ab2dd03e04ea3a9723b346" Selector="&lt;html app='chrome.exe' title='sonnenklar.TV - Reisen und Lastminute Angebote günstig buchen' /&gt;&#xA;&lt;webctrl tag='DIV' class='notice notice—error' tableCol='1' tableRow='1' /&gt;&#xA;">
+                      <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Id="8e17c48a-61a5-47ae-b51f-1ef1240f0c14" InformativeScreenshot="d37663d691ab2dd03e04ea3a9723b346" Selector="&lt;html app='chrome.exe' title='sonnenklar.TV - Reisen und Lastminute Angebote günstig buchen' /&gt;&#xD;&#xA;&lt;webctrl tag='DIV' class='notice notice—error' tableCol='1' tableRow='1' /&gt;&#xD;&#xA;">
                         <ui:Target.TimeoutMS>
                           <InArgument x:TypeArguments="x:Int32" />
                         </ui:Target.TimeoutMS>
@@ -723,31 +737,54 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                     </sap:WorkflowViewStateService.ViewState>
                   </ui:UiElementExists>
                   <FlowStep.Next>
-                    <FlowDecision x:Name="__ReferenceID6" Condition="[bool_ErrorExist]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_10">
+                    <FlowDecision x:Name="__ReferenceID5" Condition="[bool_ErrorExist]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_10">
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           <av:Point x:Key="ShapeLocation">520.5,240.5</av:Point>
                           <av:Size x:Key="ShapeSize">79,87</av:Size>
                           <av:PointCollection x:Key="FalseConnector">599.5,284 620,284 620,334 590,334 590,364</av:PointCollection>
-                          <av:PointCollection x:Key="TrueConnector">520.5,284 380.5,284</av:PointCollection>
+                          <av:PointCollection x:Key="TrueConnector">520.5,284 440.5,284</av:PointCollection>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <FlowDecision.True>
-                        <FlowStep x:Name="__ReferenceID11">
+                        <FlowStep x:Name="__ReferenceID10">
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:Point x:Key="ShapeLocation">149.5,253</av:Point>
-                              <av:Size x:Key="ShapeSize">231,62</av:Size>
+                              <av:Point x:Key="ShapeLocation">240.5,250</av:Point>
+                              <av:Size x:Key="ShapeSize">200,68</av:Size>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
-                          <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_15" Text="Fully Booked">
+                          <Sequence sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_28">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
-                          </WriteLine>
+                            <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="WriteLine_18" Text="Fully Booked">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                            </WriteLine>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_27">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Object">[dt_PriceTableSheet.Rows(int_RowIndex)(1)]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:String">["This Period is Fully Booked".ToString]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                            <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_28">
+                              <Assign.To>
+                                <OutArgument x:TypeArguments="x:Int32">[int_RowIndex]</OutArgument>
+                              </Assign.To>
+                              <Assign.Value>
+                                <InArgument x:TypeArguments="x:Int32">[int_RowIndex+1]</InArgument>
+                              </Assign.Value>
+                            </Assign>
+                          </Sequence>
                         </FlowStep>
                       </FlowDecision.True>
                       <FlowDecision.False>
@@ -756,6 +793,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                     </FlowDecision>
                   </FlowStep.Next>
                 </FlowStep>
+                <x:Reference>__ReferenceID5</x:Reference>
                 <x:Reference>__ReferenceID6</x:Reference>
                 <x:Reference>__ReferenceID7</x:Reference>
                 <x:Reference>__ReferenceID8</x:Reference>
@@ -764,7 +802,7 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                 <x:Reference>__ReferenceID11</x:Reference>
               </Flowchart>
               <FlowStep.Next>
-                <FlowStep x:Name="__ReferenceID29">
+                <FlowStep x:Name="__ReferenceID28">
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                       <av:Point x:Key="ShapeLocation">360,422</av:Point>
@@ -773,13 +811,13 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                   </sap:WorkflowViewStateService.ViewState>
                   <ui:InterruptibleDoWhile DisplayName="Do While" sap:VirtualizedContainerService.HintSize="200,52" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_9">
                     <ui:InterruptibleDoWhile.Body>
-                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,720" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                      <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,782" sap2010:WorkflowViewState.IdRef="Sequence_17">
                         <sap:WorkflowViewStateService.ViewState>
                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
                             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                           </scg:Dictionary>
                         </sap:WorkflowViewStateService.ViewState>
-                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,160" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
+                        <ui:MultipleAssign DisplayName="Multiple Assign" sap:VirtualizedContainerService.HintSize="334,222" sap2010:WorkflowViewState.IdRef="MultipleAssign_5">
                           <ui:MultipleAssign.AssignOperations>
                             <scg:List x:TypeArguments="ui:AssignOperation" Capacity="16">
                               <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_27">
@@ -805,6 +843,22 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                 <ui:AssignOperation.Value>
                                   <InArgument x:TypeArguments="x:String" xml:space="preserve">[String.Format("https://www.sonnenklar.tv/suchen/weltweit/bestellnummer({0})/code({1})/abflug(ber,sxf,txl,bre,drs,dtm,dus,erf,fra,hhn,fdh,ham,haj,hdf,ksf,fkb,cgn,lbc,lej,fmm,muc,fmo,nue,pad,rlg,scn,str,gwt,nrn)/zeitraum({2}-{3},{4})/anbieter({5})",
 str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToString("dd.MM.yyyy"), int_Duration, str_Operator)]</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_30">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[int_MoreIndex]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Int32">0</InArgument>
+                                </ui:AssignOperation.Value>
+                              </ui:AssignOperation>
+                              <ui:AssignOperation sap2010:WorkflowViewState.IdRef="AssignOperation_31">
+                                <ui:AssignOperation.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[int_CheckIndex]</OutArgument>
+                                </ui:AssignOperation.To>
+                                <ui:AssignOperation.Value>
+                                  <InArgument x:TypeArguments="x:Int32">2</InArgument>
                                 </ui:AssignOperation.Value>
                               </ui:AssignOperation>
                             </scg:List>
@@ -917,32 +971,32 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                               <x:Boolean x:Key="IsExpanded">False</x:Boolean>
                               <av:Point x:Key="ShapeLocation">530,2.5</av:Point>
                               <av:Size x:Key="ShapeSize">60,75</av:Size>
-                              <av:PointCollection x:Key="ConnectorLocation">560,77.5 560,137.5</av:PointCollection>
+                              <av:PointCollection x:Key="ConnectorLocation">560,77.5 560,127.5</av:PointCollection>
                               <x:Double x:Key="Width">1344.5744429797383</x:Double>
                               <x:Double x:Key="Height">1079.4567426363155</x:Double>
                               <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Flowchart.StartNode>
-                            <x:Reference>__ReferenceID27</x:Reference>
+                            <x:Reference>__ReferenceID26</x:Reference>
                           </Flowchart.StartNode>
                           <FlowDecision x:Name="__ReferenceID13" Condition="[bool_ElemenetExist]" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_4">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                <av:Point x:Key="ShapeLocation">550.5,596.5</av:Point>
+                                <av:Point x:Key="ShapeLocation">550.5,676.5</av:Point>
                                 <av:Size x:Key="ShapeSize">79,87</av:Size>
-                                <av:PointCollection x:Key="TrueConnector">550.5,640 470.5,640</av:PointCollection>
-                                <av:PointCollection x:Key="FalseConnector">629.5,640 839,640</av:PointCollection>
+                                <av:PointCollection x:Key="TrueConnector">550.5,720 470.5,720</av:PointCollection>
+                                <av:PointCollection x:Key="FalseConnector">629.5,720 839,720</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <FlowDecision.True>
-                              <FlowStep x:Name="__ReferenceID21">
+                              <FlowStep x:Name="__ReferenceID19">
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                    <av:Point x:Key="ShapeLocation">270.5,592</av:Point>
+                                    <av:Point x:Key="ShapeLocation">270.5,672</av:Point>
                                     <av:Size x:Key="ShapeSize">200,96</av:Size>
-                                    <av:PointCollection x:Key="ConnectorLocation">370.5,688 370.5,718 370.641666666667,718 370.641666666667,738</av:PointCollection>
+                                    <av:PointCollection x:Key="ConnectorLocation">370.5,768 370.5,798 370.641666666667,798 370.641666666667,818</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <ui:UiElementExists sap2010:Annotation.AnnotationText="Find Meal Plan&#xA;" DisplayName="Element Exists 'LI'" Exists="[bool_MealElementExist]" sap:VirtualizedContainerService.HintSize="200,96" sap2010:WorkflowViewState.IdRef="UiElementExists_5">
@@ -963,26 +1017,26 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                   </sap:WorkflowViewStateService.ViewState>
                                 </ui:UiElementExists>
                                 <FlowStep.Next>
-                                  <FlowDecision x:Name="__ReferenceID22" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
+                                  <FlowDecision x:Name="__ReferenceID20" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_5">
                                     <FlowDecision.Condition>
                                       <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="bool_MealElementExist" />
                                     </FlowDecision.Condition>
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                        <av:Point x:Key="ShapeLocation">331.141666666667,738</av:Point>
+                                        <av:Point x:Key="ShapeLocation">331.141666666667,818</av:Point>
                                         <av:Size x:Key="ShapeSize">79,87</av:Size>
-                                        <av:PointCollection x:Key="TrueConnector">331.141666666667,781.5 220,781.5 220,875.5</av:PointCollection>
-                                        <av:PointCollection x:Key="FalseConnector">410.141666666667,781.5 970,781.5 970,670</av:PointCollection>
+                                        <av:PointCollection x:Key="TrueConnector">331.141666666667,861.5 220,861.5 220,955.5</av:PointCollection>
+                                        <av:PointCollection x:Key="FalseConnector">410.141666666667,861.5 970,861.5 970,750</av:PointCollection>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
                                     <FlowDecision.True>
-                                      <FlowStep x:Name="__ReferenceID24">
+                                      <FlowStep x:Name="__ReferenceID22">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <av:Point x:Key="ShapeLocation">120,875.5</av:Point>
+                                            <av:Point x:Key="ShapeLocation">120,955.5</av:Point>
                                             <av:Size x:Key="ShapeSize">200,112</av:Size>
-                                            <av:PointCollection x:Key="ConnectorLocation">320,931.5 370,931.5</av:PointCollection>
+                                            <av:PointCollection x:Key="ConnectorLocation">320,1011.5 370,1011.5</av:PointCollection>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <Sequence sap2010:Annotation.AnnotationText="Get Price,Destination &amp; Travel Date" sap:VirtualizedContainerService.HintSize="200,112" sap2010:WorkflowViewState.IdRef="Sequence_21">
@@ -1044,17 +1098,14 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                           </ui:GetValue>
                                         </Sequence>
                                         <FlowStep.Next>
-                                          <FlowStep x:Name="__ReferenceID23">
+                                          <FlowStep x:Name="__ReferenceID21">
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                <av:Point x:Key="ShapeLocation">370,897.5</av:Point>
+                                                <av:Point x:Key="ShapeLocation">370,977.5</av:Point>
                                                 <av:Size x:Key="ShapeSize">200,68</av:Size>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
-                                            <Sequence sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_22">
-                                              <Sequence.Variables>
-                                                <Variable x:TypeArguments="x:Int32" Default="10" Name="int_RowIndex" />
-                                              </Sequence.Variables>
+                                            <Sequence sap:VirtualizedContainerService.HintSize="304,514" sap2010:WorkflowViewState.IdRef="Sequence_22">
                                               <sap:WorkflowViewStateService.ViewState>
                                                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                   <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -1092,6 +1143,13 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                                   <InArgument x:TypeArguments="x:Int32">[int_RowIndex+1]</InArgument>
                                                 </Assign.Value>
                                               </Assign>
+                                              <ui:Continue sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Continue_4">
+                                                <sap:WorkflowViewStateService.ViewState>
+                                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                  </scg:Dictionary>
+                                                </sap:WorkflowViewStateService.ViewState>
+                                              </ui:Continue>
                                             </Sequence>
                                           </FlowStep>
                                         </FlowStep.Next>
@@ -1101,9 +1159,9 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                       <FlowStep x:Name="__ReferenceID14">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <av:Point x:Key="ShapeLocation">839,610</av:Point>
+                                            <av:Point x:Key="ShapeLocation">839,690</av:Point>
                                             <av:Size x:Key="ShapeSize">262,60</av:Size>
-                                            <av:PointCollection x:Key="ConnectorLocation">970,610 970,433.5</av:PointCollection>
+                                            <av:PointCollection x:Key="ConnectorLocation">970,690 970,513.5</av:PointCollection>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
                                         <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_15">
@@ -1124,19 +1182,19 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                             <sap:WorkflowViewStateService.ViewState>
                                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                <av:Point x:Key="ShapeLocation">930.5,346.5</av:Point>
+                                                <av:Point x:Key="ShapeLocation">930.5,426.5</av:Point>
                                                 <av:Size x:Key="ShapeSize">79,87</av:Size>
-                                                <av:PointCollection x:Key="TrueConnector">930.5,390 900.5,390 900.5,412 690,412</av:PointCollection>
-                                                <av:PointCollection x:Key="FalseConnector">1009.5,390 1104.5,390</av:PointCollection>
+                                                <av:PointCollection x:Key="TrueConnector">930.5,470 900.5,470 900.5,492 690,492</av:PointCollection>
+                                                <av:PointCollection x:Key="FalseConnector">1009.5,470 1099.5,470</av:PointCollection>
                                               </scg:Dictionary>
                                             </sap:WorkflowViewStateService.ViewState>
                                             <FlowDecision.True>
                                               <FlowStep x:Name="__ReferenceID15">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <av:Point x:Key="ShapeLocation">490,364</av:Point>
+                                                    <av:Point x:Key="ShapeLocation">490,444</av:Point>
                                                     <av:Size x:Key="ShapeSize">200,96</av:Size>
-                                                    <av:PointCollection x:Key="ConnectorLocation">590,460 590,499</av:PointCollection>
+                                                    <av:PointCollection x:Key="ConnectorLocation">590,540 590,579</av:PointCollection>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
                                                 <ui:UiElementExists sap2010:Annotation.AnnotationText="Find Room Type&#xD;&#xA;" DisplayName="Element Exists 'LI'" Exists="[bool_ElemenetExist]" sap:VirtualizedContainerService.HintSize="200,96" sap2010:WorkflowViewState.IdRef="UiElementExists_3">
@@ -1160,9 +1218,9 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                                   <FlowStep x:Name="__ReferenceID16">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <av:Point x:Key="ShapeLocation">474.5,499</av:Point>
+                                                        <av:Point x:Key="ShapeLocation">474.5,579</av:Point>
                                                         <av:Size x:Key="ShapeSize">231,62</av:Size>
-                                                        <av:PointCollection x:Key="ConnectorLocation">590,561 590,596.5</av:PointCollection>
+                                                        <av:PointCollection x:Key="ConnectorLocation">590,641 590,676.5</av:PointCollection>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
                                                     <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_12" Text="[bool_ElemenetExist.ToString]">
@@ -1180,38 +1238,50 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                                               </FlowStep>
                                             </FlowDecision.True>
                                             <FlowDecision.False>
-                                              <FlowStep x:Name="__ReferenceID18">
+                                              <FlowStep x:Name="__ReferenceID25">
                                                 <sap:WorkflowViewStateService.ViewState>
                                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                    <av:Point x:Key="ShapeLocation">1104.5,359</av:Point>
-                                                    <av:Size x:Key="ShapeSize">231,62</av:Size>
-                                                    <av:PointCollection x:Key="ConnectorLocation">1220,421 1220,451</av:PointCollection>
+                                                    <av:Point x:Key="ShapeLocation">1099.5,436</av:Point>
+                                                    <av:Size x:Key="ShapeSize">200,68</av:Size>
                                                   </scg:Dictionary>
                                                 </sap:WorkflowViewStateService.ViewState>
-                                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_13" Text="Not Bookable">
+                                                <Sequence sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_32">
                                                   <sap:WorkflowViewStateService.ViewState>
                                                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                                       <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                     </scg:Dictionary>
                                                   </sap:WorkflowViewStateService.ViewState>
-                                                </WriteLine>
-                                                <FlowStep.Next>
-                                                  <FlowStep x:Name="__ReferenceID20">
+                                                  <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="WriteLine_21" Text="Not Bookable">
                                                     <sap:WorkflowViewStateService.ViewState>
                                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                        <av:Point x:Key="ShapeLocation">1120,451</av:Point>
-                                                        <av:Size x:Key="ShapeSize">200,22</av:Size>
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                                       </scg:Dictionary>
                                                     </sap:WorkflowViewStateService.ViewState>
-                                                    <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_2">
-                                                      <sap:WorkflowViewStateService.ViewState>
-                                                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                                        </scg:Dictionary>
-                                                      </sap:WorkflowViewStateService.ViewState>
-                                                    </ui:Continue>
-                                                  </FlowStep>
-                                                </FlowStep.Next>
+                                                  </WriteLine>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_34">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Object">[dt_PriceTableSheet.Rows(int_RowIndex)(1)]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:String">["Not Available Data"]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_35">
+                                                    <Assign.To>
+                                                      <OutArgument x:TypeArguments="x:Int32">[int_RowIndex]</OutArgument>
+                                                    </Assign.To>
+                                                    <Assign.Value>
+                                                      <InArgument x:TypeArguments="x:Int32">[int_RowIndex+1]</InArgument>
+                                                    </Assign.Value>
+                                                  </Assign>
+                                                  <ui:Continue sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Continue_5">
+                                                    <sap:WorkflowViewStateService.ViewState>
+                                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                                      </scg:Dictionary>
+                                                    </sap:WorkflowViewStateService.ViewState>
+                                                  </ui:Continue>
+                                                </Sequence>
                                               </FlowStep>
                                             </FlowDecision.False>
                                           </FlowDecision>
@@ -1230,13 +1300,12 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                           <x:Reference>__ReferenceID14</x:Reference>
                           <x:Reference>__ReferenceID16</x:Reference>
                           <x:Reference>__ReferenceID17</x:Reference>
-                          <x:Reference>__ReferenceID18</x:Reference>
-                          <FlowStep x:Name="__ReferenceID27">
+                          <FlowStep x:Name="__ReferenceID24">
                             <sap:WorkflowViewStateService.ViewState>
                               <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                <av:Point x:Key="ShapeLocation">460,137.5</av:Point>
+                                <av:Point x:Key="ShapeLocation">460,217.5</av:Point>
                                 <av:Size x:Key="ShapeSize">200,83</av:Size>
-                                <av:PointCollection x:Key="ConnectorLocation">560,220.5 560,240.5</av:PointCollection>
+                                <av:PointCollection x:Key="ConnectorLocation">560,300.5 560,320.5</av:PointCollection>
                               </scg:Dictionary>
                             </sap:WorkflowViewStateService.ViewState>
                             <ui:UiElementExists sap2010:Annotation.AnnotationText="Find Error Message Element" DisplayName="Find Error Element" Exists="[bool_ErrorExist]" sap:VirtualizedContainerService.HintSize="200,83" sap2010:WorkflowViewState.IdRef="UiElementExists_4">
@@ -1257,52 +1326,64 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                               </sap:WorkflowViewStateService.ViewState>
                             </ui:UiElementExists>
                             <FlowStep.Next>
-                              <FlowDecision x:Name="__ReferenceID19" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
+                              <FlowDecision x:Name="__ReferenceID18" DisplayName="Flow Decision" sap:VirtualizedContainerService.HintSize="79,87" sap2010:WorkflowViewState.IdRef="FlowDecision_6">
                                 <FlowDecision.Condition>
                                   <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="bool_ErrorExist" />
                                 </FlowDecision.Condition>
                                 <sap:WorkflowViewStateService.ViewState>
                                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                    <av:Point x:Key="ShapeLocation">520.5,240.5</av:Point>
+                                    <av:Point x:Key="ShapeLocation">520.5,320.5</av:Point>
                                     <av:Size x:Key="ShapeSize">79,87</av:Size>
-                                    <av:PointCollection x:Key="FalseConnector">599.5,284 620,284 620,334 590,334 590,364</av:PointCollection>
-                                    <av:PointCollection x:Key="TrueConnector">520.5,284 500.5,284</av:PointCollection>
+                                    <av:PointCollection x:Key="FalseConnector">599.5,364 620,364 620,414 590,414 590,444</av:PointCollection>
+                                    <av:PointCollection x:Key="TrueConnector">520.5,364 470.5,364</av:PointCollection>
                                   </scg:Dictionary>
                                 </sap:WorkflowViewStateService.ViewState>
                                 <FlowDecision.True>
-                                  <FlowStep x:Name="__ReferenceID26">
+                                  <FlowStep x:Name="__ReferenceID23">
                                     <sap:WorkflowViewStateService.ViewState>
                                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                        <av:Point x:Key="ShapeLocation">269.5,253</av:Point>
-                                        <av:Size x:Key="ShapeSize">231,62</av:Size>
-                                        <av:PointCollection x:Key="ConnectorLocation">269.5,284 230,284</av:PointCollection>
+                                        <av:Point x:Key="ShapeLocation">270.5,330</av:Point>
+                                        <av:Size x:Key="ShapeSize">200,68</av:Size>
                                       </scg:Dictionary>
                                     </sap:WorkflowViewStateService.ViewState>
-                                    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="231,62" sap2010:WorkflowViewState.IdRef="WriteLine_14" Text="Fully Booked">
+                                    <Sequence sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_31">
                                       <sap:WorkflowViewStateService.ViewState>
                                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
                                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                         </scg:Dictionary>
                                       </sap:WorkflowViewStateService.ViewState>
-                                    </WriteLine>
-                                    <FlowStep.Next>
-                                      <FlowStep x:Name="__ReferenceID25">
+                                      <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="WriteLine_20" Text="Fully Booked">
                                         <sap:WorkflowViewStateService.ViewState>
                                           <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                            <av:Point x:Key="ShapeLocation">30,273</av:Point>
-                                            <av:Size x:Key="ShapeSize">200,22</av:Size>
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                                           </scg:Dictionary>
                                         </sap:WorkflowViewStateService.ViewState>
-                                        <ui:Continue sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="Continue_1">
-                                          <sap:WorkflowViewStateService.ViewState>
-                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                                            </scg:Dictionary>
-                                          </sap:WorkflowViewStateService.ViewState>
-                                        </ui:Continue>
-                                      </FlowStep>
-                                    </FlowStep.Next>
+                                      </WriteLine>
+                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_32">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Object">[dt_PriceTableSheet.Rows(int_RowIndex)(1)]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:String">["This Period is Fully Booked".ToString]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_33">
+                                        <Assign.To>
+                                          <OutArgument x:TypeArguments="x:Int32">[int_RowIndex]</OutArgument>
+                                        </Assign.To>
+                                        <Assign.Value>
+                                          <InArgument x:TypeArguments="x:Int32">[int_RowIndex+1]</InArgument>
+                                        </Assign.Value>
+                                      </Assign>
+                                      <ui:Continue sap:VirtualizedContainerService.HintSize="262,22" sap2010:WorkflowViewState.IdRef="Continue_3">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                      </ui:Continue>
+                                    </Sequence>
                                   </FlowStep>
                                 </FlowDecision.True>
                                 <FlowDecision.False>
@@ -1311,14 +1392,46 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
                               </FlowDecision>
                             </FlowStep.Next>
                           </FlowStep>
+                          <x:Reference>__ReferenceID18</x:Reference>
                           <x:Reference>__ReferenceID19</x:Reference>
                           <x:Reference>__ReferenceID20</x:Reference>
                           <x:Reference>__ReferenceID21</x:Reference>
                           <x:Reference>__ReferenceID22</x:Reference>
                           <x:Reference>__ReferenceID23</x:Reference>
-                          <x:Reference>__ReferenceID24</x:Reference>
+                          <FlowStep x:Name="__ReferenceID26">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <av:Point x:Key="ShapeLocation">460,127.5</av:Point>
+                                <av:Size x:Key="ShapeSize">200,68</av:Size>
+                                <av:PointCollection x:Key="ConnectorLocation">560,195.5 560,217.5</av:PointCollection>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Sequence sap2010:Annotation.AnnotationText="" DisplayName="Reset GetDataIndex" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_30">
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  <x:Boolean x:Key="IsAnnotationDocked">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_31">
+                                <Assign.To>
+                                  <OutArgument x:TypeArguments="x:Int32">[int_GetDataIndex]</OutArgument>
+                                </Assign.To>
+                                <Assign.Value>
+                                  <InArgument x:TypeArguments="x:Int32">1</InArgument>
+                                </Assign.Value>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                              </Assign>
+                            </Sequence>
+                            <FlowStep.Next>
+                              <x:Reference>__ReferenceID24</x:Reference>
+                            </FlowStep.Next>
+                          </FlowStep>
                           <x:Reference>__ReferenceID25</x:Reference>
-                          <x:Reference>__ReferenceID26</x:Reference>
                         </Flowchart>
                       </Sequence>
                     </ui:InterruptibleDoWhile.Body>
@@ -1338,8 +1451,8 @@ str_OrderNumber, str_EdvCode, TP1.ToString("dd.MM.yyyy"), DateTime_TPSearch.ToSt
         </FlowStep>
       </FlowStep.Next>
     </FlowStep>
+    <x:Reference>__ReferenceID27</x:Reference>
     <x:Reference>__ReferenceID28</x:Reference>
     <x:Reference>__ReferenceID29</x:Reference>
-    <x:Reference>__ReferenceID30</x:Reference>
   </Flowchart>
 </Activity>
